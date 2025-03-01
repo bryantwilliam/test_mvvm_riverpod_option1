@@ -33,9 +33,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             builder: (context, snapshot) {
               return Column(
                 children: [
-                  Text(
-                    "You have pushed the button this many times: ${widget.viewModel.counter}",
-                  ),
+                  Text("Local: ${widget.viewModel.counter}"),
                   Text(
                     "Global (watch inside of ListenableBuilder): ${widget.viewModel.readGlobalCounter(ref)}",
                   ),
