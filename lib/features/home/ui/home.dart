@@ -36,13 +36,17 @@ class _HomePageState extends ConsumerState<HomePage> {
                   Text(
                     "You have pushed the button this many times: ${widget.viewModel.counter}",
                   ),
-                  Text("Global: ${widget.viewModel.watchGlobalCounter(ref)}"),
+                  Text(
+                    "Global (watch inside of ListenableBuilder): ${widget.viewModel.readGlobalCounter(ref)}",
+                  ),
                 ],
               );
             },
           ),
-
-          //Text("Global (watch): ${widget.viewModel.watchGlobalCounter(ref)}"),
+          Text(
+            // This should still work, because riverpod widgets don't need to be in a builder
+            "Global (watch outside of ListenableBuilder): ${widget.viewModel.watchGlobalCounter(ref)}",
+          ),
           ElevatedButton(
             onPressed: () {
               widget.viewModel.incrementCounter();
@@ -54,7 +58,7 @@ class _HomePageState extends ConsumerState<HomePage> {
               widget.viewModel.incrementGlobal(ref);
               print(
                 "Global (read): ${widget.viewModel.readGlobalCounter(ref)}",
-              ); // This shows the wrong value?
+              );
             },
             child: const Text("Increment Global"),
           ),
