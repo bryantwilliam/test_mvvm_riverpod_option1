@@ -42,7 +42,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             },
           ),
           Text(
-            // This should still work, because riverpod widgets don't need to be in a builder
+            // This should still work, because watching riverpod state doesn't need to be in a ListenableBuilder, it uses ref.
             "Global (watch outside of ListenableBuilder): ${widget.viewModel.watchGlobalCounter(ref)}",
           ),
           ElevatedButton(
