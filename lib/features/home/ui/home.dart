@@ -35,7 +35,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 children: [
                   Text("Local: ${widget.viewModel.counter}"),
                   Text(
-                    "Global (watch inside of ListenableBuilder): ${widget.viewModel.readGlobalCounter(ref)}",
+                    "Global (watch inside of ListenableBuilder): ${widget.viewModel.watchGlobalCounter(ref)}",
                   ),
                 ],
               );
